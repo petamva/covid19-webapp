@@ -1,0 +1,7 @@
+{% extends "mybase.html" %}
+{% block content %}
+<div class="jumbotron">
+	<p>Our covid19 model predicts that on {{session['date']}}, there will be {{cases}} active Covid19 cases in {{session['country']}}.</p>
+    <p>You can update your destination/date <a href="{{url_for('index')}}">here</a></p>
+</div>
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends "mybase.html" %}
+{% block content %}
+<div class="jumbotron">
+    <p>Welcome to the EU tourist guide!</p>
+    <p>Please enter your country destination and desired date of vacations:</p>
+    <form method="POST">
+        {# This hidden_tag is a CSRF security feature. #}
+        {{ form.hidden_tag() }}
+        {{ form.country.label }} {{ form.country() }}
+        {{ form.date.label }} {{ form.date() }}
+        {{ form.submit() }}
+    </form>
+</div>    
+{% endblock %}
+    
+    
+    
