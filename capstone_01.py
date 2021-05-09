@@ -26,9 +26,9 @@ def index():
 @app.route('/report')
 def report():
     n = (datetime.strptime(session['date'], '%Y-%m-%d')-datetime(2021, 4, 15)).days
-    path01 = rf'models\{session["country"].lower()}.h5'
-    path02 = rf'batches\{session["country"].lower()}.npy'
-    path03 = rf'scalers\{session["country"].lower()}.pkl'
+    path01 = rf'./models/{session["country"].lower()}.h5'
+    path02 = rf'./batches/{session["country"].lower()}.npy'
+    path03 = rf'./scalers/{session["country"].lower()}.pkl'
     new_model = tf.keras.models.load_model(path01)
     first_eval_batch = np.load(path02)
     new_scaler = joblib.load(path03)
