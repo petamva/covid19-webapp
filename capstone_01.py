@@ -25,7 +25,7 @@ def index():
 
 @app.route('/report')
 def report():
-    n = (datetime.strptime(session['date'], '%Y-%m-%d')-datetime(2021, 6, 16)).days
+    n = (datetime.strptime(session['date'], '%Y-%m-%d')-datetime(2021, 6, 17)).days
     # path01 = rf'./models/{session["country"].lower()}.h5'
     # path02 = rf'./batches/{session["country"].lower()}.npy'
     # path03 = rf'./scalers/{session["country"].lower()}.pkl'
