@@ -1,9 +1,10 @@
 from flask import Flask, url_for, redirect, render_template, session
 from datetime import datetime
-import tensorflow as tf
+from tensorflow.keras.models import load_model
 import numpy as np
 import joblib
 from infoform import InfoForm
+# from sklearn.preprocessing import MinMaxScaler
 
 app = Flask(__name__)
 # Set up your imports and your flask app.
@@ -32,7 +33,7 @@ def report():
     path01 = rf'./models/{session["country"]}.h5'
     path02 = rf'./batches/{session["country"]}.npy'
     path03 = rf'./scalers/{session["country"]}.pkl'
-    new_model = tf.keras.models.load_model(path01)
+    new_model = load_model(path01)
     first_eval_batch = np.load(path02)
     new_scaler = joblib.load(path03)
     test_predictions = []
