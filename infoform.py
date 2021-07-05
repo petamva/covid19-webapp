@@ -3,7 +3,7 @@ from wtforms import StringField, SelectField, SubmitField, DateField
 from wtforms.validators import DataRequired
 from datetime import date, timedelta
 
-countries = ['Austria',
+countries = [# 'Austria',
             # 'Belgium',
             # 'Bulgaria',
             'Croatia',
@@ -12,7 +12,7 @@ countries = ['Austria',
             # 'Denmark',
             'Estonia',
             # 'Finland',
-            'France',
+            # 'France',
             # 'Germany',
             'Greece',
             'Hungary',
@@ -32,7 +32,7 @@ countries = ['Austria',
             # 'Slovenia',
             'Spain',
             'Sweden',
-            'Switzerland',
+            # 'Switzerland',
             'United Kingdom']
 
 default_country = [('', 'Choose Country')]
