@@ -3,10 +3,41 @@ from wtforms import StringField, SelectField, SubmitField, DateField
 from wtforms.validators import DataRequired
 from datetime import date, timedelta
 
-countries = 'Austria', 'Greece', 'Italy', 'France', 'Spain', 'United_Kingdom', 'Sweden' 
+countries = ['Austria',
+            'Belgium',
+            'Bulgaria',
+            'Croatia',
+            'Cyprus',
+            'Czechia',
+            'Denmark',
+            'Estonia',
+            'Finland',
+            'France',
+            'Germany',
+            'Greece',
+            'Hungary',
+            'Iceland',
+            'Ireland',
+            'Italy',
+            'Latvia',
+            'Lithuania',
+            'Luxembourg',
+            'Malta',
+            'Netherlands',
+            'Norway',
+            'Poland',
+            'Portugal',
+            'Romania',
+            'Slovakia',
+            'Slovenia',
+            'Spain',
+            'Sweden',
+            'Switzerland',
+            'United Kingdom']
+
 default_country = [('', 'Choose Country')]
-start_date = date(2021,4,16)
-dates =  [(start_date+timedelta(i)).isoformat() for i in range(30)]
+start_date = date(2021,6,17)
+dates =  [(start_date+timedelta(i)).isoformat() for i in range(75)]
 default_date = [('', 'Choose Date')]
 
 class InfoForm(FlaskForm):

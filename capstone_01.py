@@ -25,10 +25,13 @@ def index():
 
 @app.route('/report')
 def report():
-    n = (datetime.strptime(session['date'], '%Y-%m-%d')-datetime(2021, 4, 15)).days
-    path01 = rf'./models/{session["country"].lower()}.h5'
-    path02 = rf'./batches/{session["country"].lower()}.npy'
-    path03 = rf'./scalers/{session["country"].lower()}.pkl'
+    n = (datetime.strptime(session['date'], '%Y-%m-%d')-datetime(2021, 6, 16)).days
+    # path01 = rf'./models/{session["country"].lower()}.h5'
+    # path02 = rf'./batches/{session["country"].lower()}.npy'
+    # path03 = rf'./scalers/{session["country"].lower()}.pkl'
+    path01 = rf'./models/{session["country"]}.h5'
+    path02 = rf'./batches/{session["country"]}.npy'
+    path03 = rf'./scalers/{session["country"]}.pkl'
     new_model = tf.keras.models.load_model(path01)
     first_eval_batch = np.load(path02)
     new_scaler = joblib.load(path03)
@@ -41,6 +44,8 @@ def report():
     true_predictions = new_scaler.inverse_transform(test_predictions)
     predicted_cases = true_predictions[:, 0]
     cases = int(predicted_cases[-1])
+    if cases < 0:
+        cases = 0 
     return render_template('myreport.html', cases=cases)
 
 
